@@ -12,7 +12,7 @@
     <ul>
       @foreach ($posts as $post)
         <li>
-          <a href="/blog/{{ $post->slug }}">{{ $post->title }}</a>
+          <a href="{{ url('/blog/'.$post->slug) }}">{{ $post->title }}</a>
           <em>({{ $post->published_at->format('M jS Y g:ia') }})</em>
           <p>
             {{ str_limit($post->content) }}
