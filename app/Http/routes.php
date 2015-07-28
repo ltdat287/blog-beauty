@@ -11,6 +11,14 @@
 |
 */
 
+Route::get('/test', function() {
+    return view('test');
+});
+
+Route::get('/retest', function() {
+    return Redirect::to('test')->with('message', 'You need login!');
+});
+
 // Blog pages
 Route::get('/', function () {
     return redirect('/blog');

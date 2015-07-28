@@ -1,0 +1,3 @@
+{{ Session::get('message') }}
+
+Home

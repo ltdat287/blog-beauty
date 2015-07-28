@@ -16,7 +16,10 @@ class TagController extends Controller
      */
     public function index()
     {
-        //
+        // Pass variable $tag to view admin.tag.index
+        $tag = Tag::all();
+
+        return view('admin.tag.index')->withTags($tags);
     }
 
     /**
