@@ -108,7 +108,7 @@ class TagController extends Controller
     {
         //
         $tag = Tag::findOrFail($id);
-        foreach (array_keys(array_except($this->fields, ['tag'])) as $field) {
+        foreach (array_keys($this->fields) as $field) {
             $tag->$field = $request->get($field);
         }
         $tag->save();

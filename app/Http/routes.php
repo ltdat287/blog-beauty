@@ -38,9 +38,15 @@ Route::get('admin', function () {
 
 Route::group(['namespace' => 'Admin', 'middleware' => 'auth'],
 function () {
-    resource('admin/post', 'PostController');
-    resource('admin/tag', 'TagController');
-    get('admin/upload', 'UploadController@index');
+    Route::resource('admin/post', 'PostController');
+    Route::resource('admin/tag', 'TagController');
+
+    // Add routes for upload file and folder
+    Route::get('admin/upload', 'UploadController@index');
+    Route::post('admin/upload/file', 'UploadController@uploadFile');
+    Route::delete('admin/upload/file', 'UploadController@deleteFile');
+    Route::post('admin/upload/folder', 'UploadController@createFolder');
+    Route::delete('admin/upload/folder', 'UploadController@deleteFolder');
 });
 
 // Loggind in and log out
